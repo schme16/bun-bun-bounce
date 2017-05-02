@@ -1,0 +1,24 @@
+{
+  "name": "bun-bun-bounce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schme16/bun-bun-bounce.git"
+  },
+  "author": "Shane Gadsby",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/schme16/bun-bun-bounce/issues"
+  },
+  "homepage": "https://github.com/schme16/bun-bun-bounce#readme",
+  "dependencies": {
+    "compression": "^1.6.2",
+    "express": "^4.15.2"
+  }
+}
