@@ -1,0 +1,19 @@
+{
+  "lang": "en",
+  "name": "BunBun Bounce",
+  "short_name": "bb-bounce",
+  "icons": [{
+        "src": "sys/img/icons/apple-touch-icon.png",
+        "sizes": "128x128",
+        "type": "image/png"
+      }],
+  "splash_screens": [
+
+  ],
+  "scope": "./",
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "theme_color": "#ffcd00",
+  "background_color": "#fff"
+}

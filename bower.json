@@ -1,0 +1,23 @@
+{
+  "name": "bun-bun-bounce",
+  "version": "1.0.0",
+  "authors": [
+    "Shane Gadsby <shane@gakkle.com>"
+  ],
+  "license": "GNU GPL v3.0",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.11.1",
+    "angular": "1.4",
+    "bootstrap": "~3.3.4",
+    "pepjs": "~0.3.0",
+    "open-sans": "~1.1.0"
+  }
+}
