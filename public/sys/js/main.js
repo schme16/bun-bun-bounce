@@ -5,32 +5,29 @@ window.fbAsyncInit = function() {
 		version    : 'v2.9'
 	});
 
-// ADD ADDITIONAL FACEBOOK CODE HERE
 
 
-		// Place following code after FB.init call.
+	function onLogin(response) {
+	  if (response.status == 'connected') {
+	    FB.api('/me?fields=first_name', function(data) {
+	    	m.game.player = data
+	    	m.$applyAsync()
+	    });
+	  }
+	}
 
-		function onLogin(response) {
-		  if (response.status == 'connected') {
-		    FB.api('/me?fields=first_name', function(data) {
-		      var welcomeBlock = document.getElementById('fb-welcome');
-		      welcomeBlock.innerHTML = 'Hello, ' + data.first_name + '!';
-		    });
-		  }
-		}
-
-		FB.getLoginStatus(function(response) {
-		  // Check login status on load, and if the user is
-		  // already logged in, go directly to the welcome message.
-		  if (response.status == 'connected') {
-		    onLogin(response);
-		  } else {
-		    // Otherwise, show Login dialog first.
-		    FB.login(function(response) {
-		      onLogin(response);
-		    }, {scope: 'user_friends, email'});
-		  }
-		});
+	FB.getLoginStatus(function(response) {
+	  // Check login status on load, and if the user is
+	  // already logged in, go directly to the welcome message.
+	  if (response.status == 'connected') {
+	    onLogin(response);
+	  } else {
+	    // Otherwise, show Login dialog first.
+	    FB.login(function(response) {
+	      onLogin(response);
+	    }, {scope: 'user_friends, email'});
+	  }
+	});
 
 
 
@@ -57,6 +54,13 @@ angular.module('BunBun Bounce', [])
 /*The master controller*/
 .controller('master', function master($scope) {
 	m = $scope
+
+
+	m.game = {
+		width: 400,
+		height: 711,
+	}
+
 })
 
 /*Turns off the ng-scope, et al. debug classes*/
@@ -75,5 +79,28 @@ angular.module('BunBun Bounce', [])
 				if (typeof console !== "object") console.log(e)
 			}
 		})
+	}
+})
+
+/*Directives*/
+.directive('canvas', function () {
+	return function (scope, element, attrs) {
+		console.log(123)
+		m.game.app = new PIXI.Application(m.game)
+		element.append(m.game.app.view)
+
+		var loader = PIXI.loader
+		
+		loader.add('sprites', 'sys/img/assets/sprites.json')
+		
+		loader.load(function(loader, res) {
+			m.game.res = res
+			m.game.sprites = {}
+			/*for (res.) {
+
+			}*/
+		})
+
+
 	}
 })
