@@ -41,4 +41,14 @@ body{
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
+	overflow: hidden;
+	text-align: center;
+}
+
+
+[canvas] canvas {height: 100%;}
+
+[canvas] {
+    height: 100vh;
+    display: inline-block;
 }
